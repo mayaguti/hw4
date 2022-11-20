@@ -150,6 +150,10 @@ template<class Key, class Value>
 void AVLTree<Key, Value>::insert (const std::pair<const Key, Value> &new_item)
 {
     // TODO
+    if(this->empty()){
+        this->root_ = new AVLNode<Key, Value>(new_item.first, new_item.second, NULL);
+        return;
+    }
 }
 
 /*
@@ -160,6 +164,10 @@ template<class Key, class Value>
 void AVLTree<Key, Value>:: remove(const Key& key)
 {
     // TODO
+	AVLNode<Key, Value>* node = static_cast<AVLNode<Key, Value>*> (this->internalFind(key));
+	if(node == NULL){
+		return;
+	}
 }
 
 template<class Key, class Value>
